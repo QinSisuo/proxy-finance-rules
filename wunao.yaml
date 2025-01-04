@@ -111,7 +111,7 @@ RuleProviders: &RuleProviders {type: http, behavior: classical, interval: 3600, 
 
 # 策略组
 proxy-groups: 
-  - {name: GPT, type: select, proxies: [⏱日本时延优选策略组, ⏱韩国时延优选策略组, 🚥日本故障转移策略组, 🚥韩国故障转移策略组, 🎛日本负载均衡策略组, 🎛韩国负载均衡策略组 ,⏱新国时延优选策略组, 🚥新国故障转移策略组, 🎛新国负载均衡策略组 ,⏱美国时延优选策略组, 🚥美国故障转移策略组, 🎛美国负载均衡策略组]}
+  - {name: GPT, type: select, proxies: [🚥日本故障转移策略组, 🚥韩国故障转移策略组, 🚥新加坡故障转移策略组, 🚥美国故障转移策略组]}
   - {name: 全球选择, type: select, proxies: [⏱兜底时延优选策略组]}
   - {name: 境外下载, type: select, proxies: [DIRECT, ⏱兜底时延优选策略组]}
   - {name: 兜底策略, type: select, proxies: [⏱兜底时延优选策略组]}
@@ -121,7 +121,7 @@ proxy-groups:
   - {name: ⏱台湾时延优选策略组, <<: *UrlTest, filter: *FilterTW}
   - {name: ⏱日本时延优选策略组, <<: *UrlTest, filter: *FilterJP}
   - {name: ⏱韩国时延优选策略组, <<: *UrlTest, filter: *FilterKR}
-  - {name: ⏱新国时延优选策略组, <<: *UrlTest, filter: *FilterSG}
+  - {name: ⏱新加坡时延优选策略组, <<: *UrlTest, filter: *FilterSG}
   - {name: ⏱美国时延优选策略组, <<: *UrlTest, filter: *FilterUS}
   - {name: ⏱兜底时延优选策略组, <<: *UrlTest, filter: *FilterAll}
 
@@ -130,7 +130,7 @@ proxy-groups:
   - {name: 🚥台湾故障转移策略组, <<: *FallBack, filter: *FilterTW}
   - {name: 🚥日本故障转移策略组, <<: *FallBack, filter: *FilterJP}
   - {name: 🚥韩国故障转移策略组, <<: *FallBack, filter: *FilterKR}
-  - {name: 🚥新国故障转移策略组, <<: *FallBack, filter: *FilterSG}
+  - {name: 🚥新加坡故障转移策略组, <<: *FallBack, filter: *FilterSG}
   - {name: 🚥美国故障转移策略组, <<: *FallBack, filter: *FilterUS}
 
 # 负载均衡策略组
@@ -138,7 +138,7 @@ proxy-groups:
   - {name: 🎛台湾负载均衡策略组, <<: *LoadBalance, filter: *FilterTW}
   - {name: 🎛日本负载均衡策略组, <<: *LoadBalance, filter: *FilterJP}
   - {name: 🎛韩国负载均衡策略组, <<: *LoadBalance, filter: *FilterKR}
-  - {name: 🎛新国负载均衡策略组, <<: *LoadBalance, filter: *FilterSG}
+  - {name: 🎛新加坡负载均衡策略组, <<: *LoadBalance, filter: *FilterSG}
   - {name: 🎛美国负载均衡策略组, <<: *LoadBalance, filter: *FilterUS}
 
 # 订阅规则
