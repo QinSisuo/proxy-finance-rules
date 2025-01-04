@@ -111,14 +111,10 @@ RuleProviders: &RuleProviders {type: http, behavior: classical, interval: 3600, 
 
 # 策略组
 proxy-groups: 
-  - {name: GPT, type: select, proxies: [日韩策略, 新国策略, 美国策略]}
-  - {name: 境外下载, type: select, proxies: [DIRECT, ⏱兜底时延优选策略组]}
+  - {name: GPT, type: select, proxies: [⏱日本时延优选策略组, ⏱韩国时延优选策略组, 🚥日本故障转移策略组, 🚥韩国故障转移策略组, 🎛日本负载均衡策略组, 🎛韩国负载均衡策略组 ,⏱新国时延优选策略组, 🚥新国故障转移策略组, 🎛新国负载均衡策略组 ,⏱美国时延优选策略组, 🚥美国故障转移策略组, 🎛美国负载均衡策略组]}
   - {name: 全球选择, type: select, proxies: [⏱兜底时延优选策略组]}
+  - {name: 境外下载, type: select, proxies: [DIRECT, ⏱兜底时延优选策略组]}
   - {name: 兜底策略, type: select, proxies: [⏱兜底时延优选策略组]}
-  - {name: 港台策略, type: select, proxies: [⏱香港时延优选策略组, ⏱台湾时延优选策略组, 🚥香港故障转移策略组, 🚥台湾故障转移策略组, 🎛香港负载均衡策略组, 🎛台湾负载均衡策略组]}
-  - {name: 日韩策略, type: select, proxies: [⏱日本时延优选策略组, ⏱韩国时延优选策略组, 🚥日本故障转移策略组, 🚥韩国故障转移策略组, 🎛日本负载均衡策略组, 🎛韩国负载均衡策略组]}
-  - {name: 新国策略, type: select, proxies: [⏱新国时延优选策略组, 🚥新国故障转移策略组, 🎛新国负载均衡策略组]}
-  - {name: 美国策略, type: select, proxies: [⏱美国时延优选策略组, 🚥美国故障转移策略组, 🎛美国负载均衡策略组]}
 
 # 时延优选策略组
   - {name: ⏱香港时延优选策略组, <<: *UrlTest, filter: *FilterHK}
@@ -196,6 +192,6 @@ rules:
   - RULE-SET, InternationalDownloadCDN, 境外下载
   - RULE-SET, GPT, GPT
   - RULE-SET, Microsoft, GPT
-  - RULE-SET, Google, 兜底策略
+  - RULE-SET, Google, GPT
   - GEOIP, CN, DIRECT
   - MATCH, 兜底策略
